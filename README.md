@@ -51,7 +51,7 @@ Cliente --> spring-camel-integration /
 - http://localhost:9000/Client
 - http://localhost:9000/Client/200
 #### POST
-- http:localhost:9000/Client
+- http://localhost:9000/Client
 - {
     "codigo": 222,
     "identificacion": 222,
