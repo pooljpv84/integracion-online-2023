@@ -14,8 +14,8 @@ public class ClienteProcesor implements Processor{
     @Override
     public void process(Exchange exchange) throws Exception
     {
-        Cliente customer = (Cliente) exchange.getIn().getBody();
-        log.info("Recibio {}",customer);
+        Cliente cliente = (Cliente) exchange.getIn().getBody();
+        log.info("Recibio {}",cliente);
         
     }
     

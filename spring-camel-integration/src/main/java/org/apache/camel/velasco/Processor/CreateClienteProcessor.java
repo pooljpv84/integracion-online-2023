@@ -6,14 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.modelmapper.ModelMapper;
 import org.apache.camel.velasco.DTO.*;
-
-
 public class CreateClienteProcessor implements Processor
 {
-
     private Logger log = LoggerFactory.getLogger(CreateClienteProcessor.class);
     private ModelMapper modelMapper = new ModelMapper();
-
     @Override
     public void process(Exchange exchange) throws Exception
     {
@@ -30,6 +26,5 @@ public class CreateClienteProcessor implements Processor
         }
         exchange.getIn().setBody(objClient);
         log.info("Cliente enviado: {}", objClient);
-
     }
 }
