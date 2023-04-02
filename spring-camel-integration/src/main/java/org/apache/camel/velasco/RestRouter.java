@@ -10,9 +10,6 @@ import org.apache.camel.velasco.Processor.CreateClienteProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import org.apache.camel.Exchange;
-
-import javax.xml.transform.Result;
 
 @Component
 public class RestRouter extends RouteBuilder {

@@ -2,7 +2,6 @@ package org.apache.camel.velasco.Processor;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
-import org.apache.camel.velasco.DTO.Cliente;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
