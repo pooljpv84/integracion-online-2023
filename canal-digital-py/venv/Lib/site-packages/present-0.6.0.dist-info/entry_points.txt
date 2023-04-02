@@ -1,0 +1,3 @@
+[console_scripts]
+present = present.cli:cli
+

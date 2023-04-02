@@ -1,0 +1,206 @@
+Metadata-Version: 2.1
+Name: present
+Version: 0.6.0
+Summary: A terminal-based presentation tool with colors and effects.
+Home-page: https://github.com/vinayak-mehta/present
+Author: Vinayak Mehta
+Author-email: vmehta94@gmail.com
+License: Apache 2.0
+Project-URL: Documentation, https://present.readthedocs.io
+Project-URL: Source, https://github.com/vinayak-mehta/present
+Project-URL: Changelog, https://github.com/vinayak-mehta/present/blob/master/HISTORY.md
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: asciimatics (>=1.11.0)
+Requires-Dist: Click (>=7.0)
+Requires-Dist: mistune (>=2.0.0a4)
+Requires-Dist: pyfiglet (>=0.8.post1)
+Requires-Dist: PyYAML (>=5.3.1)
+Provides-Extra: dev
+Requires-Dist: black (>=20.8b1) ; extra == 'dev'
+Requires-Dist: Sphinx (>=2.2.1) ; extra == 'dev'
+Requires-Dist: asciimatics (>=1.11.0) ; extra == 'dev'
+Requires-Dist: Click (>=7.0) ; extra == 'dev'
+Requires-Dist: mistune (>=2.0.0a4) ; extra == 'dev'
+Requires-Dist: pyfiglet (>=0.8.post1) ; extra == 'dev'
+Requires-Dist: PyYAML (>=5.3.1) ; extra == 'dev'
+
+<p align="center">
+   <img src="https://raw.githubusercontent.com/vinayak-mehta/present/master/docs/_static/present.png" width="200">
+</p>
+
+# present
+
+[![Documentation Status](https://readthedocs.org/projects/present/badge/?version=latest)](https://present.readthedocs.io/en/latest/) [![image](https://img.shields.io/pypi/v/present.svg)](https://pypi.org/project/present/) [![image](https://img.shields.io/pypi/pyversions/present.svg)](https://pypi.org/project/present/) [![image](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black) [![Run on Repl.it](https://repl.it/badge/github/vinayak-mehta/present)](https://repl.it/@amasad/terminal-present)
+
+A terminal-based presentation tool with colors and effects.
+
+<p align="center">
+   <img src="https://raw.githubusercontent.com/vinayak-mehta/present/master/docs/_static/demo.gif" width="800">
+</p>
+
+You can also play a [codio](https://present.readthedocs.io/en/latest/codio.html) (pre-recorded code block) on a slide.
+
+<p align="center">
+   <img src="https://raw.githubusercontent.com/vinayak-mehta/present/master/docs/_static/codio.gif" width="800">
+</p>
+
+`present` is built on [asciimatics](https://github.com/peterbrittain/asciimatics), and it works with `Python>=3.7`.
+
+Check out the [gallery](https://present.readthedocs.io/en/latest/gallery/index.html) to see what everyone is making with `present`! You can add your slides by simply [opening an issue](https://github.com/vinayak-mehta/present/issues/new?assignees=&labels=made-with-present&template=submit-slides-to-gallery.md&title=Add+slides+to+gallery).
+
+## Installation
+
+You can simply use pip to install `present`:
+
+```bash
+$ pip install present
+```
+
+## Usage
+
+```bash
+$ present sample.md
+```
+
+Some controls:
+
+- Quit: `q`
+- Previous slide: `b`, Left arrow, Page Up
+- Next slide: `n`, Space bar, Right arrow, Page Down
+
+At the end, you can press `r` to restart the presentation.
+
+## Syntax
+
+Slides follow [Markdown](https://guides.github.com/features/mastering-markdown/) syntax. You can check out the [sample slides](https://github.com/vinayak-mehta/present/blob/master/examples/sample.md) for reference.
+
+**Note:** Some things aren't supported yet:
+- Effects and colors on the same slide.
+- Effects and code on the same slide.
+
+### Separator
+
+Each slide can be separated with a `---`.
+
+```
+Slide 1
+
+---
+
+Slide 2
+```
+
+### Headers
+
+Level 1 headings become figlets, level 2 headings get underlined with `-`, and level 3 headings become bold.
+
+```
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+```
+
+### Text
+
+```
+This is normal text
+
+This is **bold text**
+
+This is `inline code`
+
+This is a [link](www.google.com)
+
+As Kanye West said:
+
+> We're living the future so
+> the present is our past.
+```
+
+### Lists
+
+Ordered lists become unordered lists automatically.
+
+```
+- Item 1
+    - Item 1a
+    - Item 1b
+    - Item 1c
+- Item 2
+    - Item 2a
+```
+
+### Images
+
+Image paths are relative to the directory where your slides are kept, and where you invoke `present`.
+
+```
+![RC](images/recurse.png)
+```
+
+Note: You can use high resolution images and tweak the terminal font size to get the best results.
+
+### Code blocks
+
+<pre>
+```
+import os
+
+os.getcwd()
+```
+</pre>
+
+### Codios
+
+Codios are pre-recorded playable code blocks which can be useful for live demos. You can find out how to write one in the [codio](https://present.readthedocs.io/en/latest/codio.html) section of the documentation.
+
+```
+![codio](codio.yml)
+```
+
+### Style
+
+Each slide can be styled with foreground / background colors and effects. By default, slides are black on white with no effects. You can add style to a slide by adding a comment at the beginning of the slide (after the slide separator):
+
+```
+Slide 1
+
+---
+<!-- fg=black bg=yellow -->
+
+Slide 2
+
+---
+<!-- effect=explosions -->
+
+Slide 3
+```
+
+Colors: `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`.
+
+Effects: `fireworks`, `explosions`, `stars`, `matrix`, `plasma`. More coming soon!
+
+## Contributing
+
+The [Contributor's Guide](https://present.readthedocs.io/en/latest/contributing.html) has detailed information about contributing issues, documentation, code, and tests.
+
+## Versioning
+
+`present` uses [Semantic Versioning](https://semver.org/). For the available versions, see the tags on the GitHub repository.
+
+## License
+
+This project is licensed under the Apache License, see the [LICENSE](https://github.com/vinayak-mehta/present/blob/master/LICENSE) file for details.
+
+

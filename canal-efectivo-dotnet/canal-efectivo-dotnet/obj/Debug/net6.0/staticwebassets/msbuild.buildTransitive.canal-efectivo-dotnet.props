@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\canal-efectivo-dotnet.props" />
+</Project>
