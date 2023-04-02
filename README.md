@@ -11,6 +11,13 @@ Se necesita una solución en linea que permita pasar los clientes de la empresa 
 
 Desarrolle una solución tipo prueba de concepto, que permita realizar un escenarios que simule el ambiente antes descrito, utilizando un framework de integración asi como un patrón de integración que permita transmitir la información de los clientes.
 
+## Propósito
+```
+                                       --> Cliente canal 1  --> canal-digital-py
+Cliente --> spring-camel-integration /
+                                     \
+                                       -->  Cliente canal 2 --> canal-efectivo-dotnet
+```
 ### Iniciar Servicio 1 de Flask:
 ```
 # cd canal-digital-py
@@ -52,13 +59,13 @@ Desarrolle una solución tipo prueba de concepto, que permita realizar un escena
     "canal": 2
 }
 
-### Iniciar Servicio de Camel
+### Iniciar Servicio Integrador de Spring Camel
 ```
 # cd spring-camel-integration
 # mvn install
 # mvn spring-boot:run
 ```
-### EndPoints en Apache Camel JAVA:
+### EndPoints en Spring Camel JAVA:
 #### GET CLIENTES DE FLASK
 - http://localhost:8080/listaclientesflask
 - http://localhost:8080/listaclienteflask/100
